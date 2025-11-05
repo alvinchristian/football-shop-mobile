@@ -57,4 +57,5 @@ Widget build(BuildContext context) {
 
 5. Jelaskan konsep "hot reload" di Flutter dan bagaimana bedanya dengan "hot restart".
 
-Hot reload adalah fitur Flutter yang memperbarui kode aplikasi secara langsung tanpa kehilangan state sehingga hanya bagian yang diubah yang berubah. Contohnya adalah ketika kita mengupdate teks atau tampilan. Hot restart memulai ulang seluruh aplikasi dari awal, termasuk menghapus semua state yang tersimpan di memori.
+Hot reload adalah fitur Flutter yang memperbarui kode aplikasi secara langsung tanpa kehilangan state sehingga hanya bagian yang diubah yang berubah. Contohnya adalah ketika kita mengupdate teks atau tampilan. Hot restart memulai ulang seluruh aplikasi dari awal, termasuk menghapus semua state yang tersimpan di memori. Oleh sebab itu, hot reload akan lebih cepat dibanding hot restart
+
