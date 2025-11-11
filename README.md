@@ -62,3 +62,27 @@ Widget build(BuildContext context) {
 Hot reload adalah fitur Flutter yang memperbarui kode aplikasi secara langsung tanpa kehilangan state sehingga hanya bagian yang diubah yang berubah. Contohnya adalah ketika kita mengupdate teks atau tampilan. Hot restart memulai ulang seluruh aplikasi dari awal, termasuk menghapus semua state yang tersimpan di memori. Oleh sebab itu, hot reload akan lebih cepat dibanding hot restart
 </details>
 
+
+<details>
+<summary> Tugas 8 </summary>
+
+1. Jelaskan perbedaan antara Navigator.push() dan Navigator.pushReplacement() pada Flutter. Dalam kasus apa sebaiknya masing-masing digunakan pada aplikasi Football Shop kamu?
+
+Navigator.push() akan menambah page baru diatas page sekarang sehingga page lama masih ada di stack dan dapat kita gunakan back untuk balik ke page tersebut. Navigator.pushReplacement() mengganti halaman saat ini dengan halaman baru sehingga halaman lama dihapus dari stack dan tidak dapat kembali ke halaman sebelumnya. Navigator.push() cocok digunakan saat navigasi antara fitur" di aplikasi sedangkan pushReplacement lebih cocok digunakan pada saat log in dan logout, contohnya ketika user sudah logout seharusnya ia tidak dapat balik ke halaman sebelumnya
+
+2. Bagaimana kamu memanfaatkan hierarchy widget seperti Scaffold, AppBar, dan Drawer untuk membangun struktur halaman yang konsisten di seluruh aplikasi?
+
+Scaffold bertindak sebagai kerangka dasar halaman yang menyediakan struktur tata letak utama, seperti area untuk konten, AppBar, Drawer, Floating Action Button, dan sebagainya. Dengan menggunakan AppBar pada setiap halaman, aplikasi memiliki identitas visual yang konsisten, misalnya dengan menampilkan judul aplikasi dan warna tema yang sama pada bagian atas layar. Sementara itu, Drawer digunakan sebagai navigasi samping yang memuat menu utama, memungkinkan pengguna untuk berpindah antar halaman dengan mudah. 
+
+3. Dalam konteks desain antarmuka, apa kelebihan menggunakan layout widget seperti Padding, SingleChildScrollView, dan ListView saat menampilkan elemen-elemen form? Berikan contoh penggunaannya dari aplikasi kamu. 
+
+Padding berfungsi untuk memberikan ruang di sekitar elemen-elemen input, sehingga tampilan tidak terlihat terlalu padat dan lebih mudah dibaca. SingleChildScrollView berguna ketika form memiliki banyak field; widget ini memungkinkan seluruh halaman dapat di-scroll sehingga elemen tidak terpotong jika layar perangkat kecil atau keyboard sedang terbuka. Sementara itu, ListView mempermudah penataan elemen form dalam sebuah list yang otomatis dapat di-scroll dan mengatur ruang antar widget tanpa harus menambahkan Column dan SingleChildScrollView secara manual.
+
+Ketika membuat halaman Create Product, saya menggunakan Padding di sekitar TextField seperti Padding(padding: EdgeInsets.all(8.0), child: TextField(...)) agar input terlihat lebih rapi dan tidak menempel ke tepi layar. Kemudian, seluruh form tersebut ditempatkan dalam SingleChildScrollView agar ketika pengguna mengetik dan keyboard muncul, halaman tetap dapat di-scroll tanpa terjadi overflow.
+
+4. Bagaimana kamu menyesuaikan warna tema agar aplikasi Football Shop memiliki identitas visual yang konsisten dengan brand toko?
+
+Pertama saya mengubah app bar menjadi warna putih dan tulisan Fulltime menjadi hijau dan Gear menjadi hitam agar sama dengan website. Setelah itu saya ubah tombol-tombol agar sama juga dengan webstie seperti all products memiliki background putih, text hitam, dan border hitam, add product dan my products memiliki background hijau
+
+</details>
+
