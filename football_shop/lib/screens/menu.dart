@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:football_shop/widgets/left_drawer.dart'; 
+import 'package:football_shop/widgets/item_card.dart';
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({super.key});
-  final String nama = "Alvin Christian Halim"; //nama
-  final String npm = "240640070"; //npm
-  final String kelas = "F"; //kelas
+
+  final String nama = "Alvin Christian Halim";
+  final String npm = "240640070";
+  final String kelas = "F";
 
   final List<ItemHomepage> items = [
     ItemHomepage("All Products", Icons.newspaper),
@@ -16,15 +19,41 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Fulltime Gear',
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
+        backgroundColor: Colors.white,
+        surfaceTintColor: Colors.transparent, 
+        elevation: 0,
+        shape: const Border(
+          bottom: BorderSide(
+            color: Colors.black26,
+            width: 1,
           ),
         ),
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        title: RichText(
+          text: const TextSpan(
+            children: [
+              TextSpan(
+                text: "Fulltime ",
+                style: TextStyle(
+                  color: Colors.green,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
+              ),
+              TextSpan(
+                text: "Gear",
+                style: TextStyle(
+                  color: Colors.black, 
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
+
+
+      drawer: LeftDrawer(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -104,60 +133,6 @@ class InfoCard extends StatelessWidget {
 class ItemHomepage {
   final String name;
   final IconData icon;
+
   ItemHomepage(this.name, this.icon);
-}
-
-class ItemCard extends StatelessWidget {
-  final ItemHomepage item;
-  const ItemCard(this.item, {super.key});
-
-  // Menentukan warna berdasarkan nama tombol
-  Color _getColor(String name) {
-    switch (name) {
-      case "All Products":
-        return Colors.blue;
-      case "My Products":
-        return Colors.green;
-      case "Create Product":
-        return Colors.red;
-      default:
-        return Colors.grey;
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: _getColor(item.name),
-      borderRadius: BorderRadius.circular(12),
-      child: InkWell(
-        onTap: () {
-          ScaffoldMessenger.of(context)
-            ..hideCurrentSnackBar()
-            ..showSnackBar(
-              SnackBar(
-                content: Text("Kamu telah menekan tombol ${item.name}"),
-              ),
-            );
-        },
-        child: Container(
-          padding: const EdgeInsets.all(8),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(item.icon, color: Colors.white, size: 30.0),
-                const Padding(padding: EdgeInsets.all(3)),
-                Text(
-                  item.name,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(color: Colors.white),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
 }
